@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--Instructions page-->
+{% load static %}
+<html>
+<head>
+  <title>Emotional faces</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'learn/style.css' %}">
+  <meta charset="utf-8" />
+</head>
+<body class="center">
+  <p><i><strong>Instructions</strong>: <br><br><strong>The main task is to determine whether the Emotions presented in these videos are real or acted.</strong>
+  <br>
+  <br> The types of emotion include <strong> {{emo1}} , {{emo2}} , {{emo3}} and {{emo4}} </strong><br>
+    <br> Note that you might recognise some characters appearing in the videos,
+    <br> as the video sources include movies, TV shows and other possibly known video media.
+    <br> There is no guarantee they are expressing acted or genuine emotions.
+  </i></p>
+  <p><i>After viewing a video, you will answer the following question:</i></p>
+  <p>How does this expression presented in the video look to you?
+    <br><br>&nbsp &nbsp &nbsp &nbsp<strong>Genuine Emotion </strong> means the dominating emotion this person experienced is genuine.
+    <br>&nbsp &nbsp &nbsp &nbsp<strong>Acted Emotion </strong> means this person acted the emotion.
+  </p>
+
+  <p><i>After submission, you will be taken to the next page to answer the following questions: </i></p>
+  <p>How do you rate your confidence level?
+    <br><br>&nbsp &nbsp &nbsp &nbsp<strong>1 </strong> means you are <strong>not confident</strong>.
+    <br>&nbsp &nbsp &nbsp &nbsp<strong>2 </strong> means you are <strong>a little confident</strong>.
+    <br>&nbsp &nbsp &nbsp &nbsp<strong>3 </strong> means you are <strong>average confident</strong>.
+    <br>&nbsp &nbsp &nbsp &nbsp<strong>4 </strong> means you are <strong>confident</strong>.
+    <br>&nbsp &nbsp &nbsp &nbsp<strong>5 </strong> means you are <strong>very confident</strong>.
+  </p>
+
+  <p>Have you seen this video before? <strong>
+    <br><br>&nbsp &nbsp &nbsp &nbsp Yes</strong> or <strong>No</strong>
+  </p>
+
+<!--   <p><i>If you answer "yes" to the previous question, you will also need to answer this question:</i></p>
+  <p>If you do recognise the video (yes to the previous quesion), does this affect your decision?<strong>
+    <br><br>&nbsp &nbsp &nbsp &nbspYes</strong> or <strong>No</strong>
+  </p> -->
+
+  <h3>click <a href="emojudgement_tips">here</a> for next page.</strong></h3>
+
+</body>
+</html>

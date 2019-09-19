@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html> -->
+AFEW dataset
+{% load static %}
+experiment process: {{count}} / {{total}}
+<!-- {{path}} -->
+<!-- {{emo}}  -->
+<html>
+<head>
+	<title>Emotional faces</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'afew/style.css' %}">
+    <script type="text/javascript" src="{% static 'afew/test.js' %}"></script>
+	<meta charset="utf-8"/>
+</head>
+<body class="stimuli">
+	<div id="content-wrapper"> 
+		<video autoplay id="video">
+			{{path}}
+			<source src= ../{{path}} type="video/mp4">
+			Your browser does not support the video tag.
+			</video>
+
+		<div id="form"  style="display:none">
+		<form id = "authenticity_form" action='emojudgement_afew_save_authenticity' method="post">
+		{% csrf_token %}
+			<p>How does this expression presented in the video look to you?
+			<p><input type="radio" id=real value = 1 name=authenticity required="required">Completely fake 
+			<input type="radio"  id=fake value = 2 name=authenticity required="required">Surface acted 
+			<input type="radio" id=real value = 3 name=authenticity required="required">Don't Know 
+			<p><input type="radio"  id=fake value = 4 name=authenticity required="required">Deep acted 
+			<input type="radio" id=real value = 5 name=authenticity required="required">Completely real
+			<p><input type="submit" name = 'continue' value="submit"></input>
+		
+		</form>
+		</div> 
+		
+		<!-- <a href="javascript:void(0);" onclick="this.innerHTML='提交中';this.onclick='';this.removeAttribute('href')">按钮</a> -->
+		<!-- <h1 id="clickPoint"> click <a onclick="test()" style="cursor: pointer"><u><i>here</i></u></a> to skip</h1> -->
+
+	</div>
+
+<script type="text/javascript">
+	//display the question after the video is finished-
+	var vid = document.getElementById("video");
+	vid.onended = function() {
+		document.getElementById("form").style.display="block";
+	};
+
+    <!-- window.onbeforeunload = function() { -->
+        <!-- return "Dude, are you sure you want to leave? Think of the kittens!"; -->
+    <!-- } -->
+
+	
+
+
+
+var tid;
+var bClicked = false;
+function sbm(){
+   
+if(bClicked){
+       
+alert("please just click the button once");
+       
+return
+false;   
+    }
+    bClicked = true;
+    tid = setTimeout("doit()", 10000);
+   
+//document.forms[0].submit();
+}
+function doit(){
+   
+if(tid!=null){clearTimeout(tid);tid=null;}
+    bClicked = false;
+
+function nicetry(){
+
+$("#continue").attr("disabled","true");
+
+}
+
+}
+
+function reset() {
+
+document.getElementById("authenticity_form").reset();
+
+}
+
+
+</script>
+
+
+
+	
+</body>
+</html>

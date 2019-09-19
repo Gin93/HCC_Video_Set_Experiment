@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Emotional faces</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'learn/style.css' %}">
+  <meta charset="utf-8"/>
+</head>
+
+<body class="centerform">
+  <form method="post" action="saveinfo", method="post" > 
+  {% csrf_token %}
+  <p>How do you rate your confidence level?
+    <br>
+    <label><input type="radio" name="Option" value="1"> 1 (Not confident)</label>
+    <label><input type="radio" name="Option" value="2"> 2 (A little confident)</label>
+    <label><input type="radio" name="Option" value="3"> 3 (Average confident)</label>
+    <label><input type="radio" name="Option" value="4"> 4 (Confident)</label>
+    <label><input type="radio" name="Option" value="5"> 5 (Very confident)</label>
+  </p>
+
+  <p>Have you seen this video before?
+    <br>
+    <label><input type="radio" name="Unknown/Known" value="Yes"> Yes</label>
+    <label><input type="radio" name="Unknown/Known" value="No"> No</label>
+  </p>
+
+  <p id="impact" style="display:none">If you do recognise the video (yes to the previous quesion), does this affect your decision?
+    <br><label><input type="radio" name="Biased" value="Yes" > Yes</label>
+    <label><input type="radio" name="Biased" value="No" > No</label>
+    <p/>
+
+    <h3>Please answer the questions and click the Submit button.
+      <button id="submit" onclick="save(1, 13)">Submit</button>
+    </h3>
+    <div id="response"></div>
+    <!-- </form> -->
+  </body>
+  <!-- add an extra question when the video is recognised by the participant -->
+  <script>
+  $('input:radio[name="Unknown/Known"]').change(
+    function(){
+      if ($(this).is(':checked') && $(this).val() == 'Yes') {
+        $("#impact").show();
+        $("#submit").attr("onclick","extrasave(1, 13);return false;");
+      } else {
+        $("#impact").hide();
+        $("#submit").attr("onclick","save(1, 13);return false;");
+      }
+  });
+  </script>
+  </html>

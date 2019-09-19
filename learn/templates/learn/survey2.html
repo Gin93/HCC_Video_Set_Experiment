@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--In the end of the experiment, gather ethnicity data from the participants-->
+{% load static %}
+
+<html>
+<head>
+  <title>Emotional faces</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'learn/style.css' %}">
+  <!-- <script type="text/javascript" src="/redirect.js"></script> -->
+  <meta charset="utf-8"/>
+</head>
+<div class = 'thanks'>
+ 
+</div> 
+	
+<body class="centerform">
+<h3>Human Centred Computing (HCC) research group thanks for <br> your participation. </h3>
+&#160;&#160;Please answer the last two questions and click the Submit button to view <br> &#160;&#160;your experiment results. 
+<form action="emojudgement_addinfo2todatabase" method="post">
+
+{% csrf_token %}
+  <div id="exit_form">
+  <!-- <form method="post" action="Feedback.php"> -->
+  
+
+    <p>Please describe your ethnicity:
+      <br>
+      <label>
+        <input type="radio" name="Ethnicity" value="Caucasian" required="required"> Caucasian (i.e. ancestry originally
+        from UK/Europe; please only select this option if both your parents are Caucasian)
+      </label><br>
+      <label>
+        <input type="radio" name="Ethnicity" value="Chinese" required="required"> Chinese (i.e. ancestry originally
+        from China/HK/Taiwan; please only select this option if both your parents are Chinese)
+      </label><br>
+      <label>
+        <input type="radio" name="Ethnicity" value="Other" required="required"> Other, please provide details (e.g. "I am of Asian ancestry";
+        or "I am half Asian and half Caucasian"; or "I am Indian"; etc.): </label>
+      <label><input type="text" name="OtherEthnicity" value=" ">
+      </label>
+    </p>
+
+    <p>Please indicate your native/primary language:
+      <br><label><input type="radio" name="Language" value="English" required="required"> English</label><br>
+      <label><input type="radio" name="Language" value="Other" required="required"> Other, please provide details: </label>
+      <label><input type="text" name="OtherLanguage" value=" "></label><br>
+    </p>
+
+      <!-- <input type="submit" name="submit" value="Submit"> -->
+	  <input type="submit" value="submit">
+      <!-- <button id="submit" onclick="savefeedback()">Submit</button> -->
+    </h3>
+
+    <!-- </form> -->
+  </div>
+  </body>	
+  </form>
+  </html>

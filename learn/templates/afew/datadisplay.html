@@ -1,0 +1,21 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload Successfully</title>
+    </head>
+    <body>
+        <p>data display</p>
+        {% for i in records %}
+        <p>{{i.name}}&nbsp&nbsp&nbsp{{i.date_id}}&nbsp&nbsp&nbsp{{i.uid}}&nbsp&nbsp&nbsp{{i.is_full_dataset}}</p>
+		<p>{{i.age}}&nbsp&nbsp&nbsp{{i.gender}}&nbsp&nbsp&nbsp{{i.glassess}}&nbsp&nbsp&nbsp{{i.language}}&nbsp&nbsp&nbsp{{i.ethnicity}}</p>
+		{{i.questions}}
+		<br>{{i.answer}}
+		<br>{{i.confidence}}
+		<br>{{i.seen_before}}
+		<br>{{i.time_stamp}}
+        <br>{{i.erq}}
+		<br>
+		<br>
+        {% endfor %}
+    </body>
+</html>

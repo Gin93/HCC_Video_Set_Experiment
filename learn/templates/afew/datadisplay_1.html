@@ -1,0 +1,13 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload Successfully</title>
+    </head>
+    <body>
+        <p>data display</p>
+        {% for i in records %}
+        <p>{{i.session_id}}&nbsp&nbsp&nbsp:{{i.video_set}}&nbsp&nbsp&nbsp{{i.is_watched}}</p>
+        <br>
+        {% endfor %}
+    </body>
+</html>

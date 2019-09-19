@@ -1,0 +1,57 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Your test report</title>
+    <!--在HTML页面中引用文件名为index的css文件-->
+<link rel="stylesheet" type="text/css" href="{% static 'learn/style1.css' %}">
+
+</head>
+<h1 class = 'title1'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Human classification for emotional faces</h1>
+
+<h1 class ='title'>{{name}} experiment results </h1>
+
+<body class = "centerform">
+<h2 class = 'title'>
+&#160;&#160;&#160;&#160;<u>{{name}} results</u>  &#160;&#160;VS &#160;&#160;Average results
+</h1>
+
+<!-- <img src ="Emoji/Smile.png" height = 80 width = 80>  -->
+<img src = {% static 'learn/Emoji/Smile.png' %} height = 80 width = 80> 
+<h2 class = "num"> Smile &#160;&#160;&#160;&#160;&#160;<u>{{smile}}</u> &#160;&#160;&#160;&#160;&#160;&#160;vs&#160;&#160;&#160;&#160;&#160;&#160; {{smile_ave}} </h2>
+<!-- <h2 class = "class">  </h2> -->
+
+<div class = 'up1'>
+<img src ={% static 'learn/Emoji/Surprise.png' %} height = 80 width = 80> 
+<h2 class = "num"> Surprise &#160;<u>{{surprise}}</u>&#160;&#160;&#160;&#160;&#160;&#160; vs &#160;&#160;&#160;&#160;&#160;&#160;{{surprise_ave}} </h2>
+</div>
+
+<div class = 'up2'>
+<img src ={% static 'learn/Emoji/Fear.png' %} height = 80 width = 80> 
+<h2 class = "num"> Fear &#160;&#160;&#160;&#160;&#160;&#160;&#160;<u> {{fear}}</u>&#160;&#160;&#160;&#160;&#160;&#160; vs&#160;&#160;&#160;&#160;&#160;&#160; {{fear_ave}} </h2>
+</div>
+
+<div class = 'up3'>
+<img src ={% static 'learn/Emoji/Anger.png' %} height = 80 width = 80> 
+<h2 class = "num"> Anger &#160;&#160;&#160;&#160;&#160; <u>{{anger}}</u>&#160;&#160; &#160;&#160;&#160;&#160;vs &#160;&#160;&#160;&#160;&#160;&#160;{{anger_ave}} </h2>
+</div>
+
+<div class = 'up4'>
+<h3 class = 'tips'> Did you know? &#160;&#160; Machine Learning trained using observers' pupil response achieved <font size="6" color="red">75%-90% </font>accuracy in discriminating between genuine and 
+acted emotions 
+</h3>
+
+<!-- <h3 class = 'college'><u>Human Centred Computing (HCC) research group</u> thanks for your participation </h3> -->
+<h3 class = 'college'><font color = blue> To learn further about how AI contribute to our life, welcome to study at Research School of Computer Science - ANU and join
+ us, the <u>Human Centred Computing (HCC) research group.</u> &#160;&#160;tom@cs.anu.edu.au</font>
+</h3>
+</div>
+
+<div class = 'thanks'>
+<!-- <p>The <u>ANU HCC Research Group</u> thanks for your participation!</p> -->
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+&#160;&#160;&#160;
+<!-- Click <a onclick="window.close();">here </a>to close  -->
+</div>
+</body>
+</html>

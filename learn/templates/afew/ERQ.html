@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--The questionnaires origins: https://www.ocf.berkeley.edu/~johnlab/pdfs/ERQ.pdf
+It is to test participants' ability of emotion regulation: cognitive reappraisal and expressive suppression-->
+{% load static %}
+<html>
+<head>
+  <title>Emotional faces</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'afew/style.css' %}>
+  <meta charset="utf-8"/>
+</head>
+
+<body class="questionnaire">
+  <form method="post" action="emojudgement_afew_erqcollection">
+ {% csrf_token %}
+    <p>We would like to ask you some questions about your emotional life, in particular, how you control (that is, regulate
+      and manage) your emotions. The questions below involve two distinct aspects of your emotional life. One is your
+      <u>emotional experience</u>, or what you feel like inside. The other is your <u>emotional expression</u>, or how you show your
+      emotions in the way you talk, gesture, or behave. Although some of the following questions may seem similar to one
+      another, they differ in important ways. For each item, please answer using the following scale:
+      <br><br><i>
+        <strong>1</strong>: Strongly disagree <strong>2</strong>: Sometimes disagree <strong>3</strong>: Slightly disagree
+        <strong>4</strong>: Neutral
+        <strong>5</strong>: Slightly agree <strong>6</strong>: Sometimes agree <strong>7</strong>: Strongly agree
+      </i>
+    </p>
+
+    <p>1. When I want to feel more <strong>positive</strong> emotion (such as joy or amusement), I <strong> change what I’m thinking about</strong>.
+      <br><br>
+      <label><input type="radio" name="Item1" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item1" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item1" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item1" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item1" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item1" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item1" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>2. I keep my emotions to myself.
+      <br><br>
+      <label><input type="radio" name="Item2" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item2" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item2" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item2" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item2" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item2" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item2" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>3. When I want to feel less <strong>negative</strong> emotion (such as sadness or anger), I <strong>change what I’m thinking about</strong>.
+      <br><br>
+      <label><input type="radio" name="Item3" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item3" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item3" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item3" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item3" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item3" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item3" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>4. When I am feeling <strong>positive</strong> emotions, I am careful not to express them.
+      <br><br>
+      <label><input type="radio" name="Item4" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item4" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item4" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item4" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item4" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item4" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item4" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>5. When I’m faced with a stressful situation, I make myself <strong>think about it</strong> in a way that helps me stay calm.
+      <br><br>
+      <label><input type="radio" name="Item5" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item5" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item5" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item5" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item5" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item5" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item5" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>6. I control my emotions by <strong>not expressing them</strong>.
+      <br><br>
+      <label><input type="radio" name="Item6" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item6" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item6" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item6" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item6" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item6" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item6" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>7. When I want to feel more <strong>positive</strong> emotion, I <strong>change the way I’m thinking</strong> about the situation.
+      <br><br>
+      <label><input type="radio" name="Item7" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item7" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item7" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item7" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item7" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item7" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item7" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>8. I control my emotions by <strong>changing the way I think</strong> about the situation I’m in.
+      <br><br>
+      <label><input type="radio" name="Item8" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item8" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item8" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item8" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item8" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item8" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item8" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>9. When I am feeling <strong>negative</strong> emotions, I make sure not to express them.
+      <br><br>
+      <label><input type="radio" name="Item9" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item9" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item9" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item9" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item9" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item9" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item9" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <p>10. When I want to feel less <strong>negative</strong> emotion, I <strong>change the way I’m thinking</strong> about the situation.
+      <br><br>
+      <label><input type="radio" name="Item10" value="1" required="required">1 (Strongly disagree)</label>
+      <label><input type="radio" name="Item10" value="2" required="required">2 (Sometimes disagree)</label>
+      <label><input type="radio" name="Item10" value="3" required="required">3 (Slightly disagree)</label>
+      <label><input type="radio" name="Item10" value="4" required="required">4 (Neutral)</label>
+      <label><input type="radio" name="Item10" value="5" required="required">5 (Slightly agree)</label>
+      <label><input type="radio" name="Item10" value="6" required="required">6 (Sometimes agree)</label>
+      <label><input type="radio" name="Item10" value="7" required="required">7 (Strongly agree)</label>
+      <span class="error"> </span>
+    </p>
+
+    <h3>Please answer the questions and click the Submit button.
+      <!-- <input type="submit" name="submit" value="Submit"> -->
+      <button id="submit">Submit</button>
+    </h3>
+</form>
+</body>
+</html>

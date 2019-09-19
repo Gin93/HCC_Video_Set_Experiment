@@ -1,0 +1,116 @@
+.centerform{
+margin: auto;
+position: absolute;
+left: 30%;
+}
+
+body.centerform1{
+	color: red;
+  margin: auto;
+  width: 60%;
+  position: absolute;
+  left: 25%;
+  top: 25%;
+}
+
+
+#content {
+    position: absolute;
+	left: 22%;
+    top: 10%;
+    height: 240px;
+    margin-top: -120px; /* negative half of the height */
+}
+
+/* div.skip{
+color : red;
+margin: auto;
+position: absolute;
+left: 30%;
+top: 30%;
+} */
+
+#exit_form {
+position: relative;
+width: 600px;
+line-height: 150%;
+}
+
+
+div.up1{
+position:relative;
+top: -50
+}
+
+div.up2{
+position:relative;
+top: -100
+}
+div.up3{
+position:relative;
+top: -150
+}
+div.up4{
+position:relative;
+top: -200
+}
+
+h1.title {
+color: blue;
+position:relative;
+left:5%
+}
+
+h1.title1 {
+color: blue;
+position:relative;
+left:-10%
+}
+
+
+h2.title{
+position:relative;
+left: 15%
+	
+}
+
+h2.num
+{
+position:relative;
+left:120px;
+top:-90px
+
+}
+h2.class
+{
+position:relative;
+left:20px;
+top:-20px
+}
+
+h3.tips{
+position:relative;
+left:-20%
+}
+
+h3.college{
+color: blue;
+position:relative;
+left:-20%
+}
+
+div.thanks{
+	color: blue;
+    /* line-height: 200px; */
+    /* height: 200px; */
+    /* border: 3px solid green; */
+    /* text-align: center; */
+}
+
+/* div.thanks{ */
+	/* font-size:20px; */
+/* font-family: Georgia; */
+/* position:absolute; */
+/* top:35%; */
+/* left: 45% */
+/* } */

@@ -1,0 +1,12 @@
+{% load static %}
+<!--link rel="stylesheet" type="text/css" href="{% static 'learn/style.css' %}"-->
+<form action='p004.html' method="post">
+    {% csrf_token %}
+	
+	<p>Please indicate your age:{{form.gender_choices}}
+	<p>Please select your gender:
+	<p>Please indicate whether you are currently wearing glasses or contacts:
+    {{ form }}
+	
+    <input type="submit" value="Submit">
+</form>

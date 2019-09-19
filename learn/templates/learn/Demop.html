@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--Expression human classification starts-->
+{% load static %}
+<html>
+<head>
+	<title>Emotional faces</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'learn/style.css' %}">
+	<meta charset="utf-8"/>
+</head>
+<body class="stimuli">
+	<div id="content-wrapper">
+
+		<video autoplay id="video">
+			<source src="{% static 'learn/demo/F_extra.mp4' %}" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+
+			<h3 id="start" style="display:none">If you are ready for the real experiment, please click
+			<button onclick="window.location='emojudgement_p003info';">Start the experiment</button>
+			</h3>
+		</div>
+<!--JavaScript: display question after the video is finished-->
+		<script>
+		var vid = document.getElementById("video");
+		vid.onended = function() {
+			document.getElementById("start").style.display="block";
+		};
+		</script>
+
+	</body>
+	</html>

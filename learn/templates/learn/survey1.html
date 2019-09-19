@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+<head>
+  <title>Emotional faces</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'learn/style.css' %}">
+  <!--script type="text/javascript" src="/redirect.js"></script-->
+  <meta charset="utf-8"/>
+</head>
+
+<body class="center">
+  <div id="initial_form">
+    <form method="post" action="emojudgement_p003collection"> 
+	{% csrf_token %}
+	<p>Please indicate your preferred name : <input type="text" name="Name"></p>
+      <p>Please indicate your age: <input type="number" name="Age" required min="1" max="120"><span class="error"> </span></p>
+      <p>Please select your gender:
+        <br>
+        <label><input type="radio" name="Gender" value="Male" required="required">Male</label>
+        <label><input type="radio" name="Gender" value="Female" required="required">Female</label>
+        <label><input type="radio" name="Gender" value="Not disclosed" required="required">I prefer not to disclose</label>
+      <span class="error"> </span></p>
+      <p>Please indicate whether you are currently wearing glasses or contacts:
+        <br><label><input type="radio" name="GlassesContacts" value="Yes" required="required">Yes</label>
+        <label><input type="radio" name="GlassesContacts" value="No" required="required">No</label>
+      <span class="error"> </span></p>
+      <br>
+      <button id="submit">Submit</button>
+      <!--input type="submit" name="submit" value="Submit"-->
+    </form> 
+  </div>
+</body>
+</html>
