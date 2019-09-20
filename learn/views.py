@@ -30,7 +30,7 @@ max_emotion_videos = 20
 # reload them when use them. 
 all_global_vars = {'sequence' : [] , 'current_page' : 0 , 'videos_answer' : [],
     'user_name' : 'User', 'emo_sequence' : [] ,  'other_info' : [] , 'time_stamp' : [],
-    'questions' : [], 'seen_before' : [] , 'confidence' : [] , 'personal_info' : {}
+    'questions' : [], 'seen_before' : [] , 'confidence' : [] , 'personal_info' : {}, 'output_data' : []
     }
 
 sequence = []
@@ -76,7 +76,7 @@ def initialize():
     global all_global_vars
     all_global_vars = {'sequence' : [] , 'current_page' : 0 , 'videos_answer' : [],
         'user_name' : 'User', 'emo_sequence' : [] ,  'other_info' : [] , 'time_stamp' : [],
-        'questions' : [], 'seen_before' : [] , 'confidence' : [] , 'personal_info' : {}
+        'questions' : [], 'seen_before' : [] , 'confidence' : [] , 'personal_info' : {} , 'output_data' : []
         }    
         
 def generate_sequence():
@@ -144,7 +144,7 @@ def info_p1_collection(request):
         all_global_vars['personal_info']['age'] = age
         all_global_vars['personal_info']['gender'] = gender
         all_global_vars['personal_info']['glass'] = glass
-        
+        all_global_vars['output_data'].append ([all_global_vars['user_name'] , age , gender , glass ])
 #    global dataset 
 #    if dataset == 0:
     return HttpResponseRedirect('emojudgement_p004')       
@@ -183,7 +183,9 @@ def playing (request):
         path_authenticity = 'A'
     elif int(index) <= 10:
         path_authenticity = 'G'
-        
+         
+    v = path_authenticity + path_emotion + index  # update 
+    all_global_vars['output_data'].append ( [v , str(time.time())] )  # update 
     all_global_vars['current_page'] += 1 
     path = 'static/learn/videos/' + path_authenticity + path_emotion + index + '.mp4'
     all_global_vars['questions'].append(path)
@@ -202,6 +204,7 @@ def save_authenticity (request):
     global all_global_vars
     if request.method =='POST':
         authenticity = request.POST["authenticity"]
+        all_global_vars['output_data'][-1] += [authenticity , str(time.time())] # update 
 #        global videos_answer
         all_global_vars['videos_answer'][-1].append(authenticity)
 #        global time_stamp
@@ -229,6 +232,7 @@ def savecondifence (request):
         seen = request.POST["Unknown/Known"]
         all_global_vars['seen_before'].append(seen)
         all_global_vars['confidence'].append(con_level)
+        all_global_vars['output_data'][-1] += [con_level , seen]
     keys = list(request.POST)
     print(keys)
     if 'continue' in keys:   
@@ -277,10 +281,49 @@ def info2_add(request):
     all_global_vars['other_info'].append(OtherLanguage)
     all_global_vars['personal_info']['ethnicity'] = Ethnicity
     all_global_vars['personal_info']['Language'] = [Language,OtherLanguage]
-
-    return HttpResponseRedirect('emojudgement_Conclusion/result')         
+    all_global_vars['output_data'][0] += [Ethnicity , Language , OtherLanguage ] 
+    return HttpResponseRedirect('emojudgement_Conclusion')         
+    # return HttpResponseRedirect('emojudgement_Conclusion/result')         
 
 def end(request):
+    global all_global_vars
+
+    time_id = str (int(time.time()))
+    file_name = 'data/'+ str(time_id) + '.txt'
+
+    f = open(file_name,'w')
+    for line in all_global_vars['output_data']:
+        if type (line) ==  list:
+            f.write(str(line.pop(0)))
+            while line:
+                f.write(';')# no ";" in the end eachline 
+                data = line.pop(0)
+                if type (data) == list:
+                    for i in data:
+                        f.write(i)
+                        f.write("|")
+                else:
+                    f.write (data)
+            f.write('\n')
+        else:
+            f.write(line)
+            f.write('\n')
+    # f.writelines(all_global_vars['user_name'][:-2])
+    # f.writelines(';')  
+    # for i in all_global_vars['other_info']:
+    #     f.writelines(i)    
+    #     f.writelines(',')  
+    # f.writelines(';')  
+    # for i in all_global_vars['videos_answer']:
+    #     f.writelines(i)
+    #     f.writelines(',')  
+    # f.writelines(';')  
+    # for i in time_stamp:
+    #     f.writelines(i)  
+    #     f.writelines(',')   
+    f.close()
+
+
     return render (request,'learn/Conclusion.html')
 
 def cal_accuracy(correct,count):
@@ -387,6 +430,7 @@ def result_display(request):
             print(e)
 #            print('save falied')
     
+
     try:
         all_info.objects.create(
                 date_id = int(time.time()),
